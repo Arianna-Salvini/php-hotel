@@ -65,9 +65,10 @@ echo '</pre>';
             echo "<h2>$hotel[name]</h2>";
             echo "<p>$hotel[description]</p>";
             echo "<div>
-            <strong>Parking:</strong> $hotel[parking]</div>";
+            <strong>Parking:</strong>" . ' ' . ($hotel['parking'] ? 'Yes' : 'No') .
+                "</div>";
             echo "<div><strong>Rate:</strong> $hotel[vote]</div>";
-            echo "<div> <strong>Distance to center :</strong $hotel[distance_to_center]</div>";
+            echo "<div> <strong>Distance to center :</strong> $hotel[distance_to_center] Km</div>";
         }
         ?>
     </div>
