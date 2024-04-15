@@ -37,9 +37,12 @@ $hotels = [
     ],
 ];
 
+$show_parking_available = $_GET['parking'] === 'on';
+
 echo '<pre>';
 
 // var_dump($hotels);
+var_dump($show_parking_available);
 
 echo '</pre>';
 ?>
@@ -60,7 +63,15 @@ echo '</pre>';
 
 <body class="bg-primary bg-opacity-10">
     <div class="container">
-        <table class="table table-striped table-primary border border-2 border-primary-subtle rounded-3">
+        <!-- Form to check if an hotel parking is available -->
+        <form action="" method="get">
+            <label for="parking">Show only hotel with parking available</label>
+            <input type="checkbox" name="parking" id="parking">
+            <button type="submit">Check</button>
+        </form>
+
+        <!-- Table -->
+        <table class="table table-striped table-primary border border-2 border-primary-subtle">
             <thead class="text-center">
                 <tr>
                     <th>Name</th>
@@ -73,6 +84,13 @@ echo '</pre>';
             <tbody class="text-center">
                 <?php
                 foreach ($hotels as $hotel) {
+
+                    // Check parkng
+
+                    if ($show_parking_available && !$hotel['parking']) {
+                        continue;
+                    }
+
                     echo " <tr>";
                     echo "<td>$hotel[name]</td>";
                     echo "<td>$hotel[description]</td>";
