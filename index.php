@@ -37,7 +37,8 @@ $hotels = [
     ],
 ];
 
-$show_parking_available = $_GET['parking'] === 'on';
+// To avoid a warrning for undefined array --> use "??" coalescing operator in order to have a value true/false for the variable 
+$show_parking_available = ($_GET['parking'] ?? null) === 'on';
 
 echo '<pre>';
 
