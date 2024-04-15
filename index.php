@@ -43,7 +43,7 @@ $show_parking_available = $_GET['parking'] ?? false;
 echo '<pre>';
 
 // var_dump($hotels);
-var_dump($show_parking_available);
+// var_dump($show_parking_available);
 
 echo '</pre>';
 ?>
@@ -63,12 +63,12 @@ echo '</pre>';
 </head>
 
 <body class="bg-primary bg-opacity-10">
-    <div class="container">
+    <div class="container ">
         <!-- Form to check if an hotel parking is available -->
         <form action="" method="get">
             <label for="parking">Show only hotel with parking available</label>
             <input type="checkbox" name="parking" id="parking">
-            <button type="submit">Check</button>
+            <button type="submit" class="rounded btn btn-outline-primary">Check</button>
         </form>
 
         <!-- Table -->
