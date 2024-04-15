@@ -88,6 +88,7 @@ echo '</pre>';
 
                     // Check parkng
 
+                    // use continue statement to jump the iteration if both condition are not true (doesn't print the hotel in table)
                     if ($show_parking_available && !$hotel['parking']) {
                         continue;
                     }
