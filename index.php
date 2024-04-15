@@ -38,7 +38,7 @@ $hotels = [
 ];
 
 // To avoid a warrning for undefined array --> use "??" coalescing operator in order to have a value true/false for the variable 
-$show_parking_available = ($_GET['parking'] ?? null) === 'on';
+$show_parking_available = $_GET['parking'] ?? false;
 
 echo '<pre>';
 
@@ -87,7 +87,7 @@ echo '</pre>';
                 foreach ($hotels as $hotel) {
 
                     // Check parkng
-
+                    //Not WHY is working
                     // use continue statement to jump the iteration if both condition are not true (doesn't print the hotel in table)
                     if ($show_parking_available && !$hotel['parking']) {
                         continue;
