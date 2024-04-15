@@ -55,24 +55,46 @@ echo '</pre>';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel</title>
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
-        <?php
-        foreach ($hotels as $key => $hotel) {
-            echo "<h2>$hotel[name]</h2>";
-            echo "<p>$hotel[description]</p>";
-            echo "<div>
-            <strong>Parking:</strong>" . ' ' . ($hotel['parking'] ? 'Yes' : 'No') .
-                "</div>";
-            echo "<div><strong>Rate:</strong> $hotel[vote]</div>";
-            echo "<div> <strong>Distance to center :</strong> $hotel[distance_to_center] Km</div>";
-        }
-        ?>
+        <table class="table table-striped table-primary border border-2 border-primary-subtle rounded-3">
+            <thead class="text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Parking available</th>
+                    <th>Rating</th>
+                    <th>Distance to center</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <?php
+                foreach ($hotels as $hotel) {
+                    echo " <tr>";
+                    echo "<td>$hotel[name]</td>";
+                    echo "<td>$hotel[description]</td>";
+                    echo "<td>" . ($hotel['parking'] ? 'Yes' : 'No') . "</td>";
+                    echo  "<td>$hotel[vote]</td>";
+                    echo  "<td>$hotel[distance_to_center] Km</td>";
+                    echo "</tr>";
+
+                    // echo "<h2>$hotel[name]</h2>";
+                    // echo "<p>$hotel[description]</p>";
+                    // echo "<div>($hotel[parking] ? 'Yes' : 'No')</div>";
+                    // echo "<div>$hotel[vote]</div>";
+                    // echo "<div>$hotel[distance_to_center] Km</div>";
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
-    <strong></strong>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
